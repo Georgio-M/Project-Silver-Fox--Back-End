@@ -24,20 +24,20 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepo;
 		
-	@RequestMapping(value = "/submitStudentDetails", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+	@RequestMapping(value = "/submitUserDetails", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	
-	public void submitStudentDetails(@RequestBody User user) {
+	public void submitUserDetails(@RequestBody User user) {
 		userRepo.save(user);
 
 	}
 	
-	@RequestMapping(value = "/findStudentById",
+	@RequestMapping(value = "/findUserById",
 			produces =MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 			
 			@ResponseBody
-			 ResponseEntity<Optional<User>>findStudent(String email){
-		Optional<User> student = userRepo.findById(email);
-		return new ResponseEntity<>(student, HttpStatus.OK);
+			 ResponseEntity<Optional<User>>findUser(String email){
+		Optional<User> user = userRepo.findById(email);
+		return new ResponseEntity<>(user, HttpStatus.OK);
 			
 			}
 	
