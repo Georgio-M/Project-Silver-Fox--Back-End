@@ -1,17 +1,18 @@
 package com.capstone.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="User")
+@Table(name="users")
 
-public class User {
+public class Users {
 
 	@Id
-	@Column(name="email")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+
+	private Long id;
+
+	@Column(name = "email")
 	private String email;
 	
 	@Column(name="first_name")
@@ -24,13 +25,10 @@ public class User {
 	private String age;
 	
 	@Column(name="telephone")
-	private String telephone;
-	
-	@Column(name= "log_name")
-	private String logName;
+	private String phone;
 	
 	@Column(name = "pass_word")
-	private String passWord;
+	private String password;
 
 	public String getEmail() {
 		return email;
@@ -65,26 +63,42 @@ public class User {
 	}
 
 	public String getTelephone() {
-		return telephone;
+		return phone;
 	}
 
 	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
-
-	public String getLogName() {
-		return logName;
-	}
-
-	public void setLogName(String logName) {
-		this.logName = logName;
+		this.phone = telephone;
 	}
 
 	public String getPassWord() {
-		return passWord;
+		return password;
 	}
 
 	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+		this.password = passWord;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

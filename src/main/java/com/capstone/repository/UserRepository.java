@@ -1,15 +1,14 @@
 package com.capstone.repository;
 
-import java.util.Scanner;
+import java.util.Optional;
 
+import com.capstone.entity.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.capstone.entity.User;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<User, String> {
-	Scanner input = new Scanner(System.in);
-	
-	
+public interface UserRepository extends JpaRepository<Users, Long> {
+
+	Optional<Users> findByEmail(String aLong);
 }
