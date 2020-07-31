@@ -32,21 +32,22 @@ public class UserController {
 		Optional<Users> user = userRepo.findByEmail(email);
 		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
-	//	Number 19 starts here
+
 	@RequestMapping(value = "/logIn", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 
 	@ResponseBody
 	ResponseEntity<Optional<Users>>findLogin(String email){
-		Optional<Users> user = userRepo.findByEmail(email);
-		return new ResponseEntity<>(user, HttpStatus.OK);
+		Optional<Users> users = userRepo.findByEmail(email);
+		return new ResponseEntity<>(users, HttpStatus.OK);
 	}
 
 	@RequestMapping(value="/login",
 			consumes= MediaType.APPLICATION_JSON_VALUE,method = RequestMethod.POST)
 
-	@ResponseBody	public ResponseEntity<Optional<Users>> login(@RequestBody Users user) {Optional<Users> s = userRepo.findByEmail(user.getEmail());
-		if(s.isPresent() && s.get().getPassWord().equals(user.getPassWord())) {
-			return new ResponseEntity<>(s, HttpStatus.OK); }return new ResponseEntity<>( HttpStatus.UNAUTHORIZED);}
+	@ResponseBody	public ResponseEntity<Optional<Users>> login(@RequestBody Users users) {Optional<Users> s = userRepo.findByEmail(users.getEmail());
+		if(s.isPresent() && s.get().getPassWord().equals(users.getPassWord())) {
+			return new ResponseEntity<>(s, HttpStatus.OK);
+		}return new ResponseEntity<>( HttpStatus.UNAUTHORIZED);}
 
 	@RequestMapping(value ="/findAll",
 			produces = MediaType.APPLICATION_JSON_VALUE,
