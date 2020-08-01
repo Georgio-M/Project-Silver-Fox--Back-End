@@ -45,9 +45,10 @@ public class UserController {
 			consumes= MediaType.APPLICATION_JSON_VALUE,method = RequestMethod.POST)
 
 	@ResponseBody	public ResponseEntity<Optional<Users>> login(@RequestBody Users users) {Optional<Users> s = userRepo.findByEmail(users.getEmail());
-		if(s.isPresent() && s.get().getPassWord().equals(users.getPassWord())) {
+		if(s.isPresent() && s.get().getPassword().equals(users.getPassword())) {
 			return new ResponseEntity<>(s, HttpStatus.OK);
 		}return new ResponseEntity<>( HttpStatus.UNAUTHORIZED);}
+
 
 	@RequestMapping(value ="/findAll",
 			produces = MediaType.APPLICATION_JSON_VALUE,
