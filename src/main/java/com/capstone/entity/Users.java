@@ -1,6 +1,7 @@
 package com.capstone.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="users")
@@ -21,14 +22,91 @@ public class Users {
 	@Column(name="last_name")
 	private String lastName;
 	
-	@Column(name="age")
-	private String age;
+	@Column(name="dob")
+	private String dob;
 	
 	@Column(name="telephone")
 	private String phone;
 	
 	@Column(name = "pass_word")
 	private String password;
+
+	@Column(name="street")
+	private String street;
+
+	@Column(name = "city")
+	private String city;
+
+	@Column(name = "state")
+	private String state;
+
+	@Column(name = "zip")
+	private int zip;
+
+	@Column(name = "current_member")
+	private String currentMember;
+
+	@Column(name = "member_number")
+	private int memberNumber;
+
+	@Column(name = "admin")
+	private String admin;
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public int getZip() {
+		return zip;
+	}
+
+	public void setZip(int zip) {
+		this.zip = zip;
+	}
+
+	public String getCurrentMember() {
+		return currentMember;
+	}
+
+	public void setCurrentMember(String currentMember) {
+		this.currentMember = currentMember;
+	}
+
+	public int getMemberNumber() {
+		return memberNumber;
+	}
+
+	public void setMemberNumber(int memberNumber) {
+		this.memberNumber = memberNumber;
+	}
+
+	public String getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(String admin) {
+		this.admin = admin;
+	}
 
 	public String getEmail() {
 		return email;
@@ -54,12 +132,12 @@ public class Users {
 		this.lastName = lastName;
 	}
 
-	public String getAge() {
-		return age;
+	public String getDob() {
+		return dob;
 	}
 
-	public void setAge(String age) {
-		this.age = age;
+	public void setDob(String dob) {
+		this.dob = dob;
 	}
 
 	public String getTelephone() {
